@@ -106,10 +106,15 @@ const Seasons: React.FC<SeasonsProps> = ({ scrollY }) => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 xl:gap-12">
           {seasons.map((season, index) => {
             const Icon = season.icon;
+            // Left column cards (even indices) will be elevated on large screens
+            const isLeftCard = index % 2 === 0;
+            
             return (
               <div 
                 key={season.id}
-                className="group relative overflow-hidden rounded-3xl shadow-2xl transform transition-all duration-700 hover:scale-105 hover:-rotate-1 hover:shadow-red-500/20"
+                className={`group relative overflow-hidden rounded-3xl shadow-2xl transform transition-all duration-700 hover:scale-105 hover:-rotate-1 hover:shadow-red-500/20 ${
+                  isLeftCard ? 'lg:-mt-8' : ''
+                }`}
               >
                 {/* Card Background */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${season.color} opacity-90`} />

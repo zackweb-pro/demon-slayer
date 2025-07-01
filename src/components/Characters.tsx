@@ -48,14 +48,25 @@ const Characters: React.FC<CharactersProps> = ({ scrollY }) => {
 
         {/* Character grid */}
         <div id='characters' className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {charactersData.map((character, index) => (
-            <CharacterCard
-              key={character.id}
-              character={character}
-              index={index}
-              isVisible={visibleCards.includes(index)}
-            />
-          ))}
+          {charactersData.map((character, index) => {
+            // Determine if this is a center card (middle column in 3-column layout)
+            const isCenterCard = (index % 3 === 1);
+
+            return (
+              <div
+                key={character.id}
+                className={`transition-transform duration-300 ${
+                  isCenterCard ? 'lg:-mt-12' : ''
+                }`}
+              >
+                <CharacterCard
+                  character={character}
+                  index={index}
+                  isVisible={visibleCards.includes(index)}
+                />
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
