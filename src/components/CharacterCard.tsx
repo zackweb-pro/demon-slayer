@@ -48,7 +48,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({ character, index, isVisib
       onClick={() => setIsFlipped(!isFlipped)}
     >
       <div 
-        className={`relative w-full h-[500px] transition-transform duration-700 transform-style-preserve-3d ${
+        className={`relative w-full min-h-[700px] transition-transform duration-700 transform-style-preserve-3d ${
           isFlipped ? 'rotate-y-180' : ''
         }`}
       >
@@ -61,7 +61,10 @@ const CharacterCard: React.FC<CharacterCardProps> = ({ character, index, isVisib
             <img 
               src={character.image}
               alt={character.name}
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              className="w-full h-full object-cover  transition-transform duration-500 group-hover:scale-110"
+              style={{
+                backgroundPosition: 'top',
+              }}
             />
             <div className={`absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80`} />
             

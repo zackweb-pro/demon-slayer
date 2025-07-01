@@ -9,7 +9,7 @@ const Hero: React.FC<HeroProps> = ({ scrollY }) => {
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center text-white px-4 overflow-hidden">
       {/* Main character image */}
-      <div 
+      {/* <div 
         className="absolute inset-0 z-0"
         style={{ transform: `translateY(${scrollY * 0.3}px)` }}
       >
@@ -19,7 +19,7 @@ const Hero: React.FC<HeroProps> = ({ scrollY }) => {
           className="w-full h-full object-cover opacity-60"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black opacity-70" />
-      </div>
+      </div> */}
       
       {/* Lightning overlay effects */}
       <div 

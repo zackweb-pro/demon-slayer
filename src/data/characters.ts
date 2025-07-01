@@ -1,3 +1,9 @@
+import giyu from "../assets/giyu.jpeg";
+import rengoku from "../assets/kyojuro.jpeg";
+import tanjiro from "../assets/Tengiro.jpeg";
+import zenitsu from "../assets/Zenitsu-Agatsuma.jpeg";
+import inosuke from "../assets/inuski.jpeg";
+import nezuko from "../assets/nizuko-chan.jpeg";
 export const charactersData = [
   {
     id: "zenitsu",
@@ -13,7 +19,7 @@ export const charactersData = [
       "Lightning-fast sword techniques",
       "Godspeed technique mastery"
     ],
-    image: "https://images.pexels.com/photos/7862492/pexels-photo-7862492.jpeg?auto=compress&cs=tinysrgb&w=600&h=800&fit=crop",
+    image: zenitsu,
     color: "bg-gradient-to-br from-yellow-600 to-orange-700",
     accentColor: "border-yellow-400"
   },
@@ -31,7 +37,7 @@ export const charactersData = [
       "Demon detection abilities",
       "Hard skull technique"
     ],
-    image: "https://images.pexels.com/photos/7862495/pexels-photo-7862495.jpeg?auto=compress&cs=tinysrgb&w=600&h=800&fit=crop",
+    image: tanjiro,
     color: "bg-gradient-to-br from-blue-600 to-teal-700",
     accentColor: "border-blue-400"
   },
@@ -49,7 +55,7 @@ export const charactersData = [
       "Flexible joints and agility",
       "Enhanced sense of touch"
     ],
-    image: "https://images.pexels.com/photos/7862498/pexels-photo-7862498.jpeg?auto=compress&cs=tinysrgb&w=600&h=800&fit=crop",
+    image: inosuke,
     color: "bg-gradient-to-br from-green-600 to-emerald-700",
     accentColor: "border-green-400"
   },
@@ -67,7 +73,7 @@ export const charactersData = [
       "Immunity to sunlight",
       "Enhanced physical strength"
     ],
-    image: "https://images.pexels.com/photos/7862501/pexels-photo-7862501.jpeg?auto=compress&cs=tinysrgb&w=600&h=800&fit=crop",
+    image: nezuko,
     color: "bg-gradient-to-br from-pink-600 to-rose-700",
     accentColor: "border-pink-400"
   },
@@ -85,7 +91,7 @@ export const charactersData = [
       "Strategic combat analysis",
       "Demon Slayer Mark"
     ],
-    image: "https://images.pexels.com/photos/7862504/pexels-photo-7862504.jpeg?auto=compress&cs=tinysrgb&w=600&h=800&fit=crop",
+    image: giyu,
     color: "bg-gradient-to-br from-cyan-600 to-blue-700",
     accentColor: "border-cyan-400"
   },
@@ -103,7 +109,7 @@ export const charactersData = [
       "Inspirational leadership",
       "Demon Slayer Mark"
     ],
-    image: "https://images.pexels.com/photos/7862507/pexels-photo-7862507.jpeg?auto=compress&cs=tinysrgb&w=600&h=800&fit=crop",
+    image: rengoku,
     color: "bg-gradient-to-br from-red-600 to-orange-700",
     accentColor: "border-red-400"
   }
