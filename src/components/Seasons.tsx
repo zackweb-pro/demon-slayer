@@ -86,7 +86,7 @@ const Seasons: React.FC<SeasonsProps> = ({ scrollY }) => {
   ];
 
   return (
-    <section id="seasons" className="relative py-24 px-4 min-h-screen overflow-hidden">
+    <section id="seasons" className="relative py-24 px-4 min-h-screen ">
       {/* Animated background elements */}
       <div className="absolute inset-0">
         <div 
@@ -229,16 +229,7 @@ const Seasons: React.FC<SeasonsProps> = ({ scrollY }) => {
           })}
         </div>
 
-        {/* Bottom CTA */}
-        <div 
-          className="mt-20 text-center"
-          style={{ transform: `translateY(${scrollY * 0.05}px)` }}
-        >
-          <div className="inline-flex items-center space-x-4 bg-gradient-to-r from-red-600 to-orange-600 text-white px-8 py-4 rounded-2xl shadow-2xl hover:shadow-red-500/30 transition-all duration-300 hover:scale-105">
-            <Play className="h-6 w-6" />
-            <span className="text-xl font-bold">Start Your Journey</span>
-          </div>
-        </div>
+       
       </div>
     </section>
   );
