@@ -1,5 +1,5 @@
 import React from 'react';
-import { Play, Calendar, Users, Sword, Star, Flame, Zap } from 'lucide-react';
+import { Play, Calendar, Sword, Star, Flame, Zap } from 'lucide-react';
 import season1 from '../assets/season1.jpeg';
 import season2 from '../assets/season2.jpeg';
 import season3 from '../assets/season3.jpeg';
@@ -87,39 +87,17 @@ const Seasons: React.FC<SeasonsProps> = ({ scrollY }) => {
 
   return (
     <section id="seasons" className="relative py-24 px-4 min-h-screen ">
-      {/* Animated background elements */}
-      <div className="absolute inset-0">
-        <div 
-          className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-red-900/10 via-orange-900/5 to-transparent"
-          style={{ transform: `translateY(${scrollY * 0.03}px) rotate(${scrollY * 0.01}deg)` }}
-        />
-        <div 
-          className="absolute -top-32 -right-32 w-96 h-96 bg-gradient-to-br from-red-500/20 to-orange-500/20 rounded-full blur-3xl"
-          style={{ transform: `translateY(${scrollY * 0.08}px)` }}
-        />
-        <div 
-          className="absolute bottom-0 -left-32 w-96 h-96 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-full blur-3xl"
-          style={{ transform: `translateY(${scrollY * -0.05}px)` }}
-        />
-      </div>
-      
-      <div className="relative z-10 max-w-7xl mx-auto">
+      <div className="relative z-20 max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-20">
-          <div 
-            className="inline-block mb-8"
-            style={{ transform: `translateY(${scrollY * 0.1}px)` }}
-          >
+          <div className="inline-block mb-8">
             <h2 className="text-7xl md:text-9xl font-black mb-4 bg-gradient-to-r from-red-400 via-orange-500 via-yellow-400 to-red-500 bg-clip-text text-transparent relative">
               SEASON GUIDE
               <div className="absolute inset-0 text-7xl md:text-9xl font-black blur-sm bg-gradient-to-r from-red-600 via-orange-600 to-yellow-600 bg-clip-text text-transparent opacity-50 -z-10" />
             </h2>
             <div className="h-2 bg-gradient-to-r from-transparent via-red-500 to-transparent rounded-full opacity-60" />
           </div>
-          <p 
-            className="text-2xl md:text-3xl text-gray-300 max-w-4xl mx-auto leading-relaxed font-medium"
-            style={{ transform: `translateY(${scrollY * 0.15}px)` }}
-          >
+          <p className="text-2xl md:text-3xl text-gray-300 max-w-4xl mx-auto leading-relaxed font-medium">
             Experience the epic journey through every breathtaking arc of Demon Slayer
           </p>
         </div>
@@ -132,10 +110,6 @@ const Seasons: React.FC<SeasonsProps> = ({ scrollY }) => {
               <div 
                 key={season.id}
                 className="group relative overflow-hidden rounded-3xl shadow-2xl transform transition-all duration-700 hover:scale-105 hover:-rotate-1 hover:shadow-red-500/20"
-                style={{ 
-                  transform: `translateY(${scrollY * (0.02 + index * 0.01)}px)`,
-                  transitionDelay: `${index * 0.15}s`
-                }}
               >
                 {/* Card Background */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${season.color} opacity-90`} />

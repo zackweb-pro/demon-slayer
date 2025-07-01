@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Zap, Sword, Play, X } from 'lucide-react';
+import { Sword, Play, X } from 'lucide-react';
 import zenitsu from '../assets/zenitsu.png' // Ensure you have this image in your assets
 interface HeroProps {
   scrollY: number;
@@ -55,10 +55,7 @@ const Hero: React.FC<HeroProps> = ({ scrollY }) => {
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center text-white px-4 overflow-hidden">
       {/* YouTube trailer background or thumbnail */}
-      <div 
-        className="absolute inset-0 z-0"
-        style={{ transform: `translateY(${scrollY * 0.3}px)` }}
-      >
+      <div className="absolute inset-0 z-0">
         {isPlaying ? (
           <div className="relative w-full h-full">
             <iframe
@@ -111,7 +108,6 @@ const Hero: React.FC<HeroProps> = ({ scrollY }) => {
       {!isPlaying && (
         <div 
           className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 via-transparent to-orange-500/20 pointer-events-none"
-          style={{ transform: `translateY(${scrollY * 0.5}px)` }}
         />
       )}
       
@@ -121,10 +117,6 @@ const Hero: React.FC<HeroProps> = ({ scrollY }) => {
           {/* Main title with dramatic effects */}
           <h1 
             className="text-7xl md:text-9xl font-black mb-6 bg-gradient-to-r from-red-400 via-red-500 to-red-700 bg-clip-text text-transparent drop-shadow-2xl"
-            style={{ 
-              transform: `translateY(${scrollY * 0.2}px)`,
-              textShadow: '0 0 30px rgba(255, 0, 0, 0.38)'
-            }}
           >
             DEMON SLAYER
           </h1>
@@ -132,19 +124,12 @@ const Hero: React.FC<HeroProps> = ({ scrollY }) => {
           {/* Subtitle with glow effect */}
           <h2 
             className="text-4xl md:text-6xl font-bold mb-8 text-yellow-300 animate-pulse"
-            style={{ 
-              transform: `translateY(${scrollY * 0.3}px)`,
-              textShadow: '0 0 20px rgba(255, 255, 0, 0.8)'
-            }}
           >
             Zenitsu Agatsuma
           </h2>
           
           {/* Thunder breathing technique */}
-          <div 
-            className="text-2xl md:text-4xl mb-12 text-gray-200 leading-relaxed"
-            style={{ transform: `translateY(${scrollY * 0.4}px)` }}
-          >
+          <div className="text-2xl md:text-4xl mb-12 text-gray-200 leading-relaxed">
             <p className="mb-4 font-semibold">Thunder Breathing First Form:</p>
             <p className="text-yellow-400 font-black text-5xl animate-pulse drop-shadow-lg">
               ⚡ THUNDERCLAP AND FLASH ⚡
@@ -152,10 +137,7 @@ const Hero: React.FC<HeroProps> = ({ scrollY }) => {
           </div>
           
           {/* Action buttons */}
-          <div 
-            className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 mb-16"
-            style={{ transform: `translateY(${scrollY * 0.5}px)` }}
-          >
+          <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 mb-16">
             <button className="group border-2 border-yellow-400 text-yellow-400 px-8 py-4 rounded-full font-bold text-xl hover:bg-yellow-400 hover:text-black transition-all duration-300 shadow-2xl">
               <a href='#characters' className="flex items-center space-x-2">
                 <Sword className="h-6 w-6 group-hover:animate-spin" />

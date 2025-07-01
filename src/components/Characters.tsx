@@ -31,27 +31,16 @@ const Characters: React.FC<CharactersProps> = ({ scrollY }) => {
 
   return (
     <section id="characters" className="relative py-20 px-4 min-h-screen">
-      {/* Parallax background overlay */}
-      <div 
-        className="absolute inset-0 bg-gradient-to-b from-black/50 via-purple-900/30 to-black/50"
-        style={{ transform: `translateY(${scrollY * 0.1}px)` }}
-      />
-      
-      <div className="relative z-10 max-w-7xl mx-auto">
+      <div className="relative z-20 max-w-7xl mx-auto">
         {/* Section header */}
         <div className="text-center mb-20">
           <h2 
             className="text-6xl md:text-8xl font-black mb-6 bg-gradient-to-r from-red-400 via-orange-500 to-yellow-400 bg-clip-text text-transparent drop-shadow-2xl"
-            style={{ 
-              transform: `translateY(${scrollY * 0.1}px)`,
-              textShadow: '0 0 30px rgba(255, 100, 100, 0.5)'
-            }}
           >
             DEMON SLAYERS
           </h2>
           <p 
             className="text-2xl md:text-3xl text-gray-300 font-semibold max-w-3xl mx-auto"
-            style={{ transform: `translateY(${scrollY * 0.15}px)` }}
           >
             Meet the legendary warriors who fight against the forces of darkness
           </p>

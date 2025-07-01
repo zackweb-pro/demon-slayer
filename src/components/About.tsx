@@ -95,49 +95,10 @@ const About: React.FC<AboutProps> = ({ scrollY }) => {
 
   return (
     <section id="about" className="relative py-32 px-4 min-h-screen overflow-hidden">
-      {/* Dynamic Background Elements */}
-      <div className="absolute inset-0">
-        {/* Animated gradient overlay */}
-        <div 
-          className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-red-900/10 to-orange-900/20"
-          style={{ 
-            transform: `translateY(${scrollY * 0.03}px) rotate(${scrollY * 0.005}deg)`,
-          }}
-        />
-        
-        {/* Floating orbs */}
-        <div 
-          className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-br from-red-500/15 to-orange-500/15 rounded-full blur-3xl animate-pulse"
-          style={{ 
-            transform: `translateY(${scrollY * 0.06}px) translateX(${Math.sin(scrollY * 0.001) * 20}px)`,
-            animationDuration: '4s'
-          }}
-        />
-        <div 
-          className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-br from-purple-500/15 to-blue-500/15 rounded-full blur-3xl animate-pulse"
-          style={{ 
-            transform: `translateY(${scrollY * -0.04}px) translateX(${Math.cos(scrollY * 0.001) * 30}px)`,
-            animationDuration: '6s',
-            animationDelay: '2s'
-          }}
-        />
-        <div 
-          className="absolute top-1/2 left-1/2 w-64 h-64 bg-gradient-to-br from-yellow-500/10 to-red-500/10 rounded-full blur-2xl animate-pulse"
-          style={{ 
-            transform: `translate(-50%, -50%) translateY(${scrollY * 0.02}px) scale(${1 + Math.sin(scrollY * 0.002) * 0.1})`,
-            animationDuration: '8s',
-            animationDelay: '1s'
-          }}
-        />
-      </div>
-      
-      <div className="relative z-10 max-w-7xl mx-auto">
+      <div className="relative z-20 max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-24">
-          <div 
-            className="inline-block mb-8"
-            style={{ transform: `translateY(${scrollY * 0.08}px)` }}
-          >
+          <div className="inline-block mb-8">
             {/* Decorative elements around title */}
             <div className="flex items-center justify-center mb-6 space-x-8">
               <Flame className="h-8 w-8 text-red-400 animate-pulse" />
@@ -157,10 +118,7 @@ const About: React.FC<AboutProps> = ({ scrollY }) => {
             </h2>
           </div>
           
-          <p 
-            className="text-2xl md:text-3xl text-gray-300 max-w-5xl mx-auto leading-relaxed font-medium mb-8"
-            style={{ transform: `translateY(${scrollY * 0.12}px)` }}
-          >
+          <p className="text-2xl md:text-3xl text-gray-300 max-w-5xl mx-auto leading-relaxed font-medium mb-8">
             Enter the world of <span className="text-transparent bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text font-bold">Demon Slayer</span>, where brave warriors wield breathing techniques 
             to battle demons that threaten humanity. Follow the journey of courage, friendship, 
             and determination in this epic tale of good versus evil.
@@ -175,11 +133,8 @@ const About: React.FC<AboutProps> = ({ scrollY }) => {
               <div 
                 key={index}
                 className={`group relative overflow-hidden rounded-3xl border-2 border-white/10 hover:border-white/30 transition-all duration-700 hover:scale-105 hover:-translate-y-2 ${feature.shadowColor} shadow-2xl hover:shadow-3xl`}
-                style={{ 
-                  transform: `translateY(${scrollY * (0.02 + index * 0.005)}px) rotate(${Math.sin(scrollY * 0.001 + index) * 0.5}deg)`,
-                  transitionDelay: `${index * 0.1}s`
-                }}
               >
+              
                 {/* Animated background */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-80`} />
                 <div className={`absolute inset-0 bg-gradient-to-t ${feature.bgPattern}`} />
@@ -230,12 +185,9 @@ const About: React.FC<AboutProps> = ({ scrollY }) => {
         </div>
 
         {/* Quote Section */}
-        <div className="text-center mb-[400px]">
+        <div className="text-center ">
           <div 
             className="relative bg-gradient-to-br from-red-900/20 via-orange-900/30 to-yellow-900/20 backdrop-blur-xl rounded-3xl p-12 lg:p-16 border-2 border-red-400/20 overflow-hidden shadow-2xl"
-            style={{ 
-              transform: `translateY(${scrollY * 0.05}px) scale(${1 + Math.sin(scrollY * 0.001) * 0.02})` 
-            }}
           >
             {/* Background effects */}
             <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-black/60 to-black/80" />
