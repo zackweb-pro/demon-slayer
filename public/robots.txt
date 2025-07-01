@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://demon-slayer-trailer.vercel.app/sitemap.xml
+
+# Specific instructions for search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Block access to unnecessary files
+Disallow: /src/
+Disallow: /*.js$
+Disallow: /*.css$
+Disallow: /node_modules/
