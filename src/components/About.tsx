@@ -230,7 +230,7 @@ const About: React.FC<AboutProps> = ({ scrollY }) => {
         </div>
 
         {/* Quote Section */}
-        <div className="text-center mb-[200px]">
+        <div className="text-center mb-[400px]">
           <div 
             className="relative bg-gradient-to-br from-red-900/20 via-orange-900/30 to-yellow-900/20 backdrop-blur-xl rounded-3xl p-12 lg:p-16 border-2 border-red-400/20 overflow-hidden shadow-2xl"
             style={{ 
