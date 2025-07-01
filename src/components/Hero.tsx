@@ -34,14 +34,6 @@ const Hero: React.FC<HeroProps> = ({ scrollY }) => {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             />
-            {/* Stop video button */}
-            <button
-              onClick={handleStopVideo}
-              className="absolute top-8 right-8 z-50 bg-black/60 hover:bg-black/80 text-white p-3 rounded-full transition-all duration-300 group shadow-2xl"
-              aria-label="Stop video"
-            >
-              <X className="h-8 w-8 group-hover:scale-110 transition-transform duration-300" />
-            </button>
           </div>
         ) : (
           <div className="relative w-full h-full">
@@ -55,6 +47,17 @@ const Hero: React.FC<HeroProps> = ({ scrollY }) => {
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/50 pointer-events-none" />
       </div>
+      
+      {/* Stop video button - positioned above everything when playing */}
+      {isPlaying && (
+        <button
+          onClick={handleStopVideo}
+          className="fixed top-8 right-8 z-[9999] bg-black/80 hover:bg-black/90 text-white p-4 rounded-full transition-all duration-300 group shadow-2xl border border-white/20"
+          aria-label="Stop video"
+        >
+          <X className="h-8 w-8 group-hover:scale-110 transition-transform duration-300" />
+        </button>
+      )}
       
       {/* Lightning overlay effects - hidden when playing */}
       {!isPlaying && (
@@ -110,6 +113,16 @@ const Hero: React.FC<HeroProps> = ({ scrollY }) => {
                 <Sword className="h-6 w-6 group-hover:animate-spin" />
                 <span>Explore Characters</span>
               </a>
+            </button>
+            
+            <button 
+              onClick={handlePlayVideo}
+              className="group border-2 border-orange-400 text-orange-400 px-8 py-4 rounded-full font-bold text-xl hover:bg-orange-400 hover:text-black transition-all duration-300 shadow-2xl"
+            >
+              <div className="flex items-center space-x-2">
+                <Play className="h-6 w-6 group-hover:scale-110" fill="currentColor" />
+                <span>Watch Trailer</span>
+              </div>
             </button>
           </div>
           
