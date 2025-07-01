@@ -1,7 +1,7 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Zap, Sword, Play, X } from 'lucide-react';
-
+import zenitsu from '../assets/zenitsu.png' // Ensure you have this image in your assets
 interface HeroProps {
   scrollY: number;
 }
@@ -17,6 +17,41 @@ const Hero: React.FC<HeroProps> = ({ scrollY }) => {
     setIsPlaying(false);
   };
 
+  // Listen for YouTube video state changes
+  useEffect(() => {
+    const handleMessage = (event: MessageEvent) => {
+      // Check if the message is from YouTube
+      if (event.origin !== 'https://www.youtube.com') return;
+      
+      try {
+        const data = JSON.parse(event.data);
+        // YouTube sends state changes with info.playerState
+        // 2 = paused, 0 = ended
+        if (data.event === 'video-progress' || data.event === 'video-pause' || 
+            (data.info && (data.info.playerState === 2 || data.info.playerState === 0))) {
+          setIsPlaying(false);
+        }
+      } catch {
+        // Ignore parsing errors
+      }
+    };
+
+    // Also listen for keyboard events (like spacebar pause)
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (isPlaying && event.code === 'Escape') {
+        setIsPlaying(false);
+      }
+    };
+
+    window.addEventListener('message', handleMessage);
+    window.addEventListener('keydown', handleKeyDown);
+    
+    return () => {
+      window.removeEventListener('message', handleMessage);
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isPlaying]);
+
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center text-white px-4 overflow-hidden">
       {/* YouTube trailer background or thumbnail */}
@@ -27,7 +62,7 @@ const Hero: React.FC<HeroProps> = ({ scrollY }) => {
         {isPlaying ? (
           <div className="relative w-full h-full">
             <iframe
-              src="https://www.youtube.com/embed/x7uLutVRBfI?autoplay=1&mute=1&controls=0&loop=1&playlist=x7uLutVRBfI&rel=0&modestbranding=1&showinfo=0"
+              src="https://www.youtube.com/embed/x7uLutVRBfI?autoplay=1&mute=1&controls=1&loop=1&playlist=x7uLutVRBfI&rel=0&modestbranding=1&showinfo=0&enablejsapi=1"
               title="Demon Slayer Trailer"
               className="w-full h-full object-cover"
               style={{ minHeight: '100vh', minWidth: '100vw' }}
@@ -38,7 +73,7 @@ const Hero: React.FC<HeroProps> = ({ scrollY }) => {
         ) : (
           <div className="relative w-full h-full">
             <img 
-              src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3"
+              src={zenitsu}
               alt="Zenitsu Agatsuma"
               className="w-full h-full object-cover"
             />
@@ -48,15 +83,28 @@ const Hero: React.FC<HeroProps> = ({ scrollY }) => {
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/50 pointer-events-none" />
       </div>
       
-      {/* Stop video button - positioned above everything when playing */}
+      {/* Stop video button and instructions - positioned above everything when playing */}
       {isPlaying && (
-        <button
-          onClick={handleStopVideo}
-          className="fixed top-8 right-8 z-[9999] bg-black/80 hover:bg-black/90 text-white p-4 rounded-full transition-all duration-300 group shadow-2xl border border-white/20"
-          aria-label="Stop video"
+        <div className="fixed top-10 right-4 z-[9999] flex flex-col items-end space-y-2"
+            style={{zIndex: "1000 !important"}}
         >
-          <X className="h-8 w-8 group-hover:scale-110 transition-transform duration-300" />
-        </button>
+          <div className="bg-black/90 text-white text-sm px-3 py-2 rounded-lg border border-white/20"
+            style={{zIndex: "1000 !important"}}
+          >
+            Press ESC or click X to return
+          </div>
+          <button
+            onClick={handleStopVideo}
+            className="bg-red-600 hover:bg-red-700 text-white p-3 rounded-full transition-all duration-300 group shadow-2xl border-2 border-white/30"
+            style={{zIndex: "1000 !important"}}
+            aria-label="Stop video and return to content"
+          >
+            <X className="h-6 w-6 group-hover:scale-110 transition-transform duration-300"
+            style={{zIndex: "1000 !important"}}
+            
+            />
+          </button>
+        </div>
       )}
       
       {/* Lightning overlay effects - hidden when playing */}
@@ -72,10 +120,10 @@ const Hero: React.FC<HeroProps> = ({ scrollY }) => {
         <div className="relative z-10 text-center max-w-6xl mx-auto">
           {/* Main title with dramatic effects */}
           <h1 
-            className="text-7xl md:text-9xl font-black mb-6 bg-gradient-to-r from-yellow-300 via-orange-400 to-yellow-500 bg-clip-text text-transparent drop-shadow-2xl"
+            className="text-7xl md:text-9xl font-black mb-6 bg-gradient-to-r from-red-400 via-red-500 to-red-700 bg-clip-text text-transparent drop-shadow-2xl"
             style={{ 
               transform: `translateY(${scrollY * 0.2}px)`,
-              textShadow: '0 0 30px rgba(255, 215, 0, 0.5)'
+              textShadow: '0 0 30px rgba(255, 0, 0, 0.38)'
             }}
           >
             DEMON SLAYER
